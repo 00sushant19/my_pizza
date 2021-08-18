@@ -1,0 +1,10 @@
+-> create directory structure
+-> create a NPN project and install all dependecies
+
+    - Dependancies
+        - express
+        - ejs express-ejs-layouts
+    - Dev Dependancies
+        - nodemon
+
+-> create Express server - Create a server.js file
