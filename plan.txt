@@ -5,6 +5,10 @@
         - express
         - ejs express-ejs-layouts
     - Dev Dependancies
-        - nodemon
+        - nodemon(npm run dev)
 
 -> create Express server - Create a server.js file
+-> Git setup and first comit
+->install laravel mix
+    - setup js and scss
+

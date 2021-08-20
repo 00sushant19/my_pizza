@@ -11,6 +11,9 @@ app.get('/', (req,res)=>{
     res.render('home');
 })
 
+// assets
+app.use(express.static('public'))
+
 app.use(expressLayout)
 app.set('views', path.join(__dirname, '/resources/views'))
 // setting the path 
