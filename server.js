@@ -11,6 +11,10 @@ const session = require('express-session')
 const flash = require('express-flash')
 
 const MongoDbStore = require('connect-mongo')
+
+const passport = require('passport')
+
+app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 // database connection 
 const mongoose = require('mongoose')
@@ -22,6 +26,7 @@ connection.once('open', function() {
   // we're connected!
   console.log('database connected....');
 });
+
 
 
 // session config 
@@ -37,6 +42,12 @@ app.use(session({
 
 }))
 
+// passport config
+const passportInit = require('./app/config/passport')
+passportInit(passport)
+app.use(passport.initialize())
+app.use(passport.session())
+
 app.use(flash())
 // assets
 app.use(express.static('public'))
@@ -44,6 +55,7 @@ app.use(express.static('public'))
 // global middleware
 app.use((req, res, next) => {
   res.locals.session = req.session
+  res.locals.user = req.user
   next()
 })
 
