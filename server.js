@@ -68,7 +68,9 @@ app.set('view engine', 'ejs')
 // setting the template ejs
 
 require('./routes/web')(app)
-
+app.use((req,res) =>{
+  res.status(404).render('errors/404')
+})
 
 const server = app.listen(3000, () => {
     console.log(`listening on port ${PORT}`)
