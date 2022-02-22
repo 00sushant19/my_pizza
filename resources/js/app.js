@@ -2,7 +2,7 @@ import axios from 'axios'
 import Noty from 'noty'
 import moment from 'moment'
 import { initAdmin } from './admin'
-
+import { initStripe } from './stripe'
 let addToCart = document.querySelectorAll('.add-to-cart')
 let cartCounter = document.querySelector('#cartCounter')
 function updateCart(pizza) {
@@ -76,6 +76,8 @@ function updateStatus(order){
     })
 }
 updateStatus(order);
+
+initStripe()
 
 // socket
 let socket = io()
